@@ -9,20 +9,22 @@ export default function Navbar() {
       {/* <div className="flex justify-center align-center
        bg-rose-950  text-[#FFDCDC] w-full 
        font-mono text-sm h-10 pt-2 mb-0">Livraison offerte en Mondial Relay dès 80 € d’achat.</div> */}
-<div className="flex justify-center items-center bg-rose-950 text-[#FFDCDC] w-full font-mono text-sm h-10">
+<div className="flex justify-center items-center
+ bg-rose-950 text-[#FFDCDC] w-full font-mono
+  text-sm h-10 border border-black-b-9">
   {/* Livraison offerte en Mondial Relay dès 80 € d’achat. */}
   Free delivery with Mondial Relay on orders over €80.
 
 </div>
     <header className="flex w-full 
-      bg-amber-50 px-6 py-4  gap-6">
+      bg-amber-50 px-6">
         {/* <div className=" flex flex-row mt-2 gap-4"> */}
    <div className="flex items-center gap-0">
   <Image
     src="/LogoShop.png"
     alt="Shop Nor logo"
-    width={80}
-    height={80}
+    width={90}
+    height={90}
   />
 
   <h1 className="text-xl font-stretch-50% text-[#d26a58] -ml-6 font-[Pacifico]">
@@ -38,6 +40,11 @@ export default function Navbar() {
 className="text-smx text-[#d26a58] hover:text-orange-900"  >
         Home       
  </Link>
+   <Link href="/about" 
+         className="text-smx text-[#d26a58] hover:text-orange-900"  
+
+>          clothes of automne
+        </Link>
         <Link
           href="/user-profile"
 className="text-smx text-[#d26a58] hover:text-orange-900"  
@@ -56,11 +63,7 @@ className="text-smx text-[#d26a58] hover:text-orange-900"
  
           clothes of Summer
         </Link>
-         <Link href="/about" 
-         className="text-smx text-[#d26a58] hover:text-orange-900"  
-
->          clothes of automne
-        </Link>
+       
         
       </nav>
     <div className="flex justify-end items-center gap-4 mt-2 mx-6">

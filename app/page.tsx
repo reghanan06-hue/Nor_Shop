@@ -1,9 +1,11 @@
 import Navbar from "./components/Navbar";
-
-export default function Home() {
+import Home from  "./components/Home";
+export default function App() {
   return (
-    <div className="flex min-h-screen flex-col items-center bg-zinc-50 gap-2.5 dark:bg-black">
+    <div className="flex min-h-screen flex-col items-center  gap-2.5 dark:bg-black
+    ">
       <Navbar />
+      <Home />
     </div>
   );
-}
+  }
