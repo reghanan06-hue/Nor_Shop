@@ -17,7 +17,7 @@ export default function Navbar() {
 
 </div>
     <header className="flex w-full 
-      bg-amber-50 px-6">
+      bg-amber-50 mt-0">
         {/* <div className=" flex flex-row mt-2 gap-4"> */}
    <div className="flex items-center gap-0">
   <Image
@@ -36,7 +36,7 @@ export default function Navbar() {
      
  >
          <Link
-          href="/user-profile"
+          href="/home"
 className="text-smx text-[#d26a58] hover:text-orange-900"  >
         Home       
  </Link>
