@@ -15,9 +15,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex  w-full min-h-screen flex-col items-center  gap-2.5 bg-[#FFF5F5] mt-0">
-      <h2 className=" w-80  p-2  text-sm font-semibold text-center
-       bg-green-200 mt-8 text-green-600 rounded-xl">
+    <div className="flex  w-full min-h-screen flex-col items-center  gap-0 bg-[#FFF5F5] mt-0">
+      <h2 className=" w-80  p-1 mb-0 text-sm font-semibold text-center
+       bg-green-200 mt-8 text-green-600 rounded-xl animate-bounce transform-3d">
         The Four Seasons Collection
       </h2>
       <h1 className=" 
@@ -25,7 +25,7 @@ export default function Home() {
       mt-8 rounded-xl font-[Pacifico] text-[#d26a58]" >
 The architecture of Modest Grace
       </h1>
-<p className="text-[#EA9D9D]"> 
+<p className="text-[#EA9D9D] text-sm font-light text-center mt-1 mx-4 rounded-xl font-[Pacifico]"> 
 Elegant hijabs and modest clothing for every season, combining comfort, timeless beauty, and effortless grace.
 </p>
 
@@ -48,18 +48,18 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
         alt="Summer"
         width={220}
         height={220}
-        className={`absolute right-2 top-0 z-20 rounded-xl border-2 border-[#F8B2B2] object-cover
+        className={`absolute right-2 top-0 z-80 rounded-xl border-2 border-[#F8B2B2] object-cover
           ${activeImage === 0 ? "animate-pulse" : "animate-none"}
         `}
       />
 
       {/* Spring */}
       <Image
-        src="/Spring.jpg"
+        src="/Sp.png"
         alt="Spring"
         width={220}
         height={220}
-        className={`absolute left-2 top-0 z-20 rounded-xl border-2 border-[#F8B2B2] object-cover
+        className={`absolute left-2 top-0 z-80 rounded-xl border-2 border-[#F8B2B2] object-cover
           ${activeImage === 1 ? "animate-pulse" : "animate-none"}
         `}
       />
@@ -70,7 +70,7 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
         alt="Autumn"
         width={220}
         height={220}
-        className={`absolute bottom-0 left-2 z-20 rounded-xl object-cover
+        className={`absolute bottom-0 left-2 z-80 rounded-xl object-cover
           ${activeImage === 2 ? "animate-pulse" : "animate-none"}
         `}
       />

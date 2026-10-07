@@ -19,7 +19,7 @@ export default function Navbar() {
     <header className="flex w-full 
       bg-amber-50 mt-0">
         {/* <div className=" flex flex-row mt-2 gap-4"> */}
-   <div className="flex items-center gap-0">
+   <div className="flex items-center gap-0  animation-bounce">
   <Image
     src="/LogoShop.png"
     alt="Shop Nor logo"
@@ -35,37 +35,42 @@ export default function Navbar() {
       <nav className="flex items-center  justify-center gap-10 mx-20 "        
      
  >
-         <Link
-          href="/home"
-className="text-smx text-[#d26a58] hover:text-orange-900"  >
-        Home       
- </Link>
-   <Link href="/about" 
-         className="text-smx text-[#d26a58] hover:text-orange-900"  
-
->          clothes of automne
-        </Link>
-        <Link
-          href="/user-profile"
-className="text-smx text-[#d26a58] hover:text-orange-900"  
-        >
-          clothes of winter
-        </Link>
-
-        <Link href="/"
-        className="text-smx text-[#d26a58] hover:text-orange-900"  >
-
-          clothes of Spring
-        </Link>
-
-        <Link href="/about"
-        className="text-smx text-[#d26a58] hover:text-orange-900"  >
- 
-          clothes of Summer
-        </Link>
-       
         
-      </nav>
+  <Link
+    href="/"
+    className="text-sm text-[#d26a58] hover:text-orange-900"
+  >
+    Home
+  </Link>
+
+  <Link
+    href="/autumn"
+    className="text-sm text-[#d26a58] hover:text-orange-900"
+  >
+    Clothes of Autumn
+  </Link>
+
+  <Link
+    href="/winter"
+    className="text-sm text-[#d26a58] hover:text-orange-900"
+  >
+    Clothes of Winter
+  </Link>
+
+  <Link
+    href="/spring"
+    className="text-sm text-[#d26a58] hover:text-orange-900"
+  >
+    Clothes of Spring
+  </Link>
+
+  <Link
+    href="/summer"
+    className="text-sm text-[#d26a58] hover:text-orange-900"
+  >
+    Clothes of Summer
+  </Link>
+</nav>
     <div className="flex justify-end items-center gap-4 mt-2 mx-6">
       {/* <Link
   href="/language"
