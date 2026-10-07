@@ -50,7 +50,7 @@ export default function Footer() {
         </div>
 
         {/* Navigation 2 */}
-        <div className="flex items-start justify-center pt-24">
+        <div className="flex items-start justify-center pt-24 ">
           <nav className="flex flex-col gap-4 text-[#FFDCDC]">
             <Link
               href="/about"
