@@ -1,4 +1,6 @@
-import { Truck, ShieldCheck, Award, Headset } from "lucide-react";
+import ReviewCard from '../components/ReviewCard';
+import BenefitsPage from '../components/BenefitsPage';
+
 export default function AboutPage() {
   return (
     <>
@@ -229,37 +231,15 @@ export default function AboutPage() {
             </div>
 
           </div>
-        
+
         </div>
-  <div className="flex flex-1 flex-row gap-3 rounded-t-2xl px-4 py-6 bg-[#FFF5F5] mb-7"> 
-    {/* Fast Shipping */} 
-    <div className="flex flex-1 flex-col gap-3 rounded-2xl px-4 py-6">
-       <Truck size={32} className="text-[#978c7b] mx-10" />
-        <h3 className="font-bold text-[#978c7b]">Fast Shipping</h3>
-     <p className="text-sm text-[#978c7b]">
-     Fast, reliable delivery. </p> </div>
-               <div className="flex flex-1 flex-col gap-3 rounded-2xl px-4 py-6 "> 
 
-        <ShieldCheck size={32} className="text-[#978c7b] mx-10" />
-         <h3 className="font-bold text-[#978c7b]">Secure Shopping</h3>
-         <p className="text-sm text-[#978c7b]"
-         > Secure payments, worry-free shopping </p>
-          </div> 
-          {/* Amazing Quality */}
-           <div className="flex flex-1 flex-col gap-3 rounded-2xl px-4 py-6 "> 
-            <Award size={32} className="text-[#978c7b] mx-10" />
-             <h3 className="font-bold text-[#978c7b]">Amazing Quality</h3>
-             <p className="text-sm text-[#978c7b]">
-              Exceptional quality, every time. </p> 
-             </div> {/* 24h Service */} <div className="flex flex-1 flex-col gap-3 rounded-2xl px-4 py-6">
-               <Headset size={32} className="text-[#978c7b]  mx-6" />
-                <h3 className="font-bold text-[#978c7b]">24h Service</h3>
-                <p className="text-sm
-  text-[#978c7b]">  24/7 customer support.</p> 
-  </div>
-  </div>
+         <BenefitsPage/>
 
-        <hr />
+
+        <hr className="border-[#978c7b] border-1 w-full mb-10"/>
+                         <ReviewCard/>
+
       </main>
     </>
   );

@@ -8,6 +8,8 @@ export default function Footer() {
   return (
     <footer className="w-full bg-rose-950 font-mono text-sm 
     rounded-xl border-2 border-[#F8B2B2] gap-5">
+                      
+
       <div className="mx-auto flex min-h-[400px] flex-col gap-10 px-6 py-10 md:flex-row md:justify-between md:px-16 lg:px-24">
         {/* Navigation 1 */}
         <div className="flex items-start justify-center pt-24">

@@ -107,9 +107,13 @@ export default function Navbar() {
             href="/spring"
             categories={springCategories}
           />
-
+   <SeasonMenu
+            title="Clothes of Summer"
+            href="/summer"
+            categories={springCategories}
+          />
           {/* Summer sans flèche */}
-          <div className="relative group">
+          {/* <div className="relative group">
             <Link
               href="/summer"
               className="whitespace-nowrap text-sm text-[#d26a58] hover:text-orange-900"
@@ -128,7 +132,7 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-          </div>
+          </div> */}
         </nav>
 
         {/* Icônes à droite */}
