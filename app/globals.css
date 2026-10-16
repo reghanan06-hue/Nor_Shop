@@ -6,3 +6,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0;
 }
+
+@keyframes slide-up {
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out both;
+}
