@@ -18,7 +18,7 @@ export default function Home() {
     <div className="flex  w-full min-h-screen flex-col items-center
       gap-0 bg-[#FFF5F5] mt-0">
       <h2 className=" w-80  p-1 mb-0 text-sm font-semibold text-center
-       bg-green-200 mt-8 text-green-600 rounded-xl animate-bounce transform-3d shadow-amber-700 shadow-2xl">
+       bg-green-300 mt-8 text-[#397256] rounded-xl animate-bounce transform-3d shadow-amber-700 shadow-2xl">
         The Four Seasons Collection
       </h2>
       <h1 className=" 
@@ -39,9 +39,12 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
 {/* Picture in center */}
 
 
-<Image src="/First-img.jpg" alt="Main collection"
+<Image src="/First-img.jpg" 
+alt="Main collection"
  width={500}
- height={300} className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2
+ height={300}
+
+ className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2
  -translate-y-1/2 rounded-xl border-2 border-[#F8B2B2] object-cover " />
 
   {/* Summer */}
