@@ -36,14 +36,14 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="/spring"
+              href="/spring/classic"
               className="transition-colors hover:text-orange-300"
             >
               Clothes of Spring
             </Link>
 
             <Link
-              href="/summer"
+              href="/summer/classic"
               className="transition-colors hover:text-orange-300"
             >
               Clothes of Summer
