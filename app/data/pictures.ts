@@ -115,4 +115,249 @@ export const pictures = [
     price:300,
 
   },
+    {
+    id: 10,
+    title: "Sport Spring Outfit 3",
+    style: "sports",
+    season: "summer",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/sports-summer2.png",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+  {
+    id: 11,
+    title: "Sport Spring Outfit 3",
+    style: "sports",
+    season: "summer",
+    category: "tracksuit",
+    color: "#C4A4DA",
+     image: "/images/sports-summer1.png",
+
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+  
+
+    {
+    id: 12,
+    title: " Classic Summer Outfit 3",
+    style: "modern",
+    season: "summer",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/classic-summer1.png",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+{
+    id: 13,
+    title: "Sport Spring Outfit 3",
+    style: "sports",
+    season: "summer",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/sports-summer3.png",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+   {
+    id: 14,
+    title: " Classic Summer Outfit 3",
+    style: "modern",
+    season: "summer",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/classic-summer2.png",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+   {
+    id: 15,
+    title: " Classic Summer Outfit 3",
+    style: "modern",
+    season: "summer",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/classic-summer3.png",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+
+  // modern-summer1
+
+     {
+    id: 16,
+    title: " Classic Summer Outfit 3",
+    style: "classic",
+    season: "summer",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/Modern-summer1.png",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+
+     {
+    id: 17,
+    title: " Classic Summer Outfit 3",
+    style: "classic",
+    season: "summer",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/modern-summer2.png",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+     {
+    id: 18,
+    title: " Classic Summer Outfit 3",
+    style: "classic",
+    season: "summer",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/modern-summer3.png",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+  {
+    id: 19,
+    title: " Sport Winter Outfit 3",
+    style: "sports",
+    season: "winter",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/sport-winter1.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+   {
+    id: 20,
+    title: " Sport Winter Outfit 3",
+    style: "sports",
+    season: "winter",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/sport-winter2.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+   
+   {
+    id: 21,
+    title: " Sport Winter Outfit 3",
+    style: "sports",
+    season: "winter",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/sport-winter3.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+  // classic-winter1
+   {
+    id: 22,
+    title: " Classic Winter Outfit 3",
+    style: "classic",
+    season: "winter",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/classic-winter1.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+     {
+    id: 23,
+    title: " Classic Winter Outfit 3",
+    style: "classic",
+    season: "winter",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/classic-winter.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+   {
+    id: 24,
+    title: " Classic Winter Outfit 3",
+    style: "classic",
+    season: "winter",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/classic-winter2.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+  // modern-winter1
+   {
+    id: 25,
+    title: " Modern Winter Outfit 3",
+    style: "modern",
+    season: "winter",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/modern-winter1.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+
+  {
+    id: 26,
+    title: " Modern Winter Outfit 3",
+    style: "modern",
+    season: "winter",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/modern-winter2.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+  {
+    id: 27,
+    title: " Modern Winter Outfit 3",
+    style: "modern",
+    season: "winter",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/modern-winter3.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
 ];

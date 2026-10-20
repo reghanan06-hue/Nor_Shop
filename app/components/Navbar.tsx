@@ -31,15 +31,15 @@ export default function Navbar() {
   ];
 
   const winterCategories: Category[] = [
-    { name: "CLASSIC", href: "/clothes-of-winter/classic" },
-    { name: "MODERN", href: "/clothes-of-winter/modern" },
-    { name: "SPORTS", href: "/clothes-of-winter/sports" },
+    { name: "CLASSIC", href: "/winter/classic" },
+    { name: "MODERN", href: "/winter/modern" },
+    { name: "SPORTS", href: "/winter/sports" },
   ];
 
   const summerCategories: Category[] = [
-    { name: "CLASSIC", href: "/clothes-of-summer/classic" },
-    { name: "MODERN", href: "/clothes-of-summer/modern" },
-    { name: "SPORTS", href: "/clothes-of-summer/sports" },
+    { name: "CLASSIC", href: "/summer/classic" },
+    { name: "MODERN", href: "/summer/modern" },
+    { name: "SPORTS", href: "/summer/sports" },
   ];
 
   // Composant réutilisable pour chaque saison
@@ -123,7 +123,7 @@ export default function Navbar() {
 
           <SeasonMenu
             title="Clothes of Spring"
-            href="/spring"
+            href="spring/classic"
             categories={springCategories}
           />
 
