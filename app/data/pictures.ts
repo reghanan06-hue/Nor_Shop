@@ -43,8 +43,8 @@ export const pictures = [
     category: "tracksuit",
     color: "#C4A4DA",
     image: "/images/modern-sping1.jpg",
-    width: 600,
-    height: 800,
+    width: 200,
+    height: 180,
     price:240,
 
   },
@@ -57,8 +57,8 @@ export const pictures = [
     category: "tracksuit",
     color: "#C4A4DA",
     image: "/images/modern-sping2.png",
-    width: 600,
-    height: 800,
+    width: 200,
+    height: 180,
     price:240,
  },
 
@@ -70,8 +70,8 @@ export const pictures = [
     category: "tracksuit",
     color: "#C4A4DA",
     image: "/images/modern-sping3.png",
-    width: 600,
-    height: 80,
+    width: 200,
+    height: 180,
     price:240,
 
     
@@ -357,6 +357,128 @@ export const pictures = [
     image: "/images/modern-winter3.jpg",
     width: 600,
     height: 300,
+    price:300,
+
+  },
+  // autumn-sport.picture
+  {
+    id: 28,
+    title: " Sports Autumn Outfit 1",
+    style: "sports",
+    season: "autumn",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/autumn-sport1.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+
+   {
+    id: 29,
+    title: " Sports Autumn Outfit 2",
+    style: "sports",
+    season: "autumn",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/autumn-sport2.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+  
+   {
+    id: 30,
+    title: " Sports Autumn Outfit 3",
+    style: "sports",
+    season: "autumn",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/autumn-sport3.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+  {
+    id: 31,
+    title: " Classic Autumn Outfit 3",
+    style: "classic",
+    season: "autumn",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/autumn-classic1.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+
+   {
+    id: 32,
+    title: " Classic Autumn Outfit 2",
+    style: "classic",
+    season: "autumn",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/autumn-classic2.jpg",
+    width: 600,
+    height: 300,
+    price:300,
+
+  },
+   {
+    id: 33,
+    title: " Classic Autumn Outfit 3",
+    style: "classic",
+    season: "autumn",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/autumn-classic3.jpg",
+    width: 150,
+    height: 100,
+    price:300,
+
+  },
+     {
+    id: 33,
+    title: " Modern Autumn Outfit 3",
+    style: "modern",
+    season: "autumn",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/autumn-modern1.jpg",
+    width: 150,
+    height: 100,
+    price:300,
+
+  },
+
+    {
+    id: 34,
+    title: " Modern Autumn Outfit 3",
+    style: "modern",
+    season: "autumn",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/autumn-modern2.jpg",
+    width: 150,
+    height: 100,
+    price:300,
+
+  },
+      {
+    id: 35,
+    title: " Modern Autumn Outfit 3",
+    style: "modern",
+    season: "autumn",
+    category: "tracksuit",
+    color: "#C4A4DA",
+    image: "/images/autumn-modern3.jpg",
+    width: 150,
+    height: 100,
     price:300,
 
   },

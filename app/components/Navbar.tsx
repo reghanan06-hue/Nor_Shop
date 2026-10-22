@@ -25,9 +25,9 @@ export default function Navbar() {
   ];
 
   const autumnCategories: Category[] = [
-    { name: "CLASSIC", href: "/clothes-of-autumn/classic" },
-    { name: "MODERN", href: "/clothes-of-autumn/modern" },
-    { name: "SPORTS", href: "/clothes-of-autumn/sports" },
+    { name: "CLASSIC", href: "/autumn/classic" },
+    { name: "MODERN", href: "/autumn/modern" },
+    { name: "SPORTS", href: "/autumn/sports" },
   ];
 
   const winterCategories: Category[] = [
@@ -111,7 +111,7 @@ export default function Navbar() {
 
           <SeasonMenu
             title="Clothes of Autumn"
-            href="/autumn"
+            href="autumn/classic"
             categories={autumnCategories}
           />
 
