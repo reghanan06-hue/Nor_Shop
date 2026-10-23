@@ -153,7 +153,7 @@ export default function PictureGallery({
 
                 <button
                   type="button"
-                  className="mt-3 rounded-2xl bg-[#f54d4d]
+                  className="mt-3 rounded-2xl bg-[#f58f31]
                              px-6 py-2 text-sm text-orange-200
                              hover:bg-amber-600 cursor-pointer"
                 >
