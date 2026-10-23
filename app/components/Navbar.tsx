@@ -83,9 +83,10 @@ export default function Navbar() {
       </div>
 
       {/* Navbar */}
-      <header className="flex w-full items-center justify-between gap-4 bg-red-100 px-4">
+      <header className="flex w-full items-center justify-between gap-4
+       bg-red-100 px-4">
+        <Link href="/about" className="flex shrink-0 items-center ">
         {/* Logo */}
-        <Link href="/about" className="flex shrink-0 items-center">
   <Image
     src="/LogoShop.png"
     alt="Shop Nor logo"
@@ -95,7 +96,8 @@ export default function Navbar() {
     className="h-auto w-[90px] "
   />
 
-          <h1 className="-ml-6 whitespace-nowrap font-[Pacifico] text-xl text-[#d26a58]">
+          <h1 className="-ml-6 whitespace-nowrap font-[Pacifico] text-xl
+           text-[#d26a58]  hover:text-amber-800">
             Nor shop
           </h1>
         </Link>
