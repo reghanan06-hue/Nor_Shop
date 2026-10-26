@@ -3,13 +3,15 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
+import { useCart } from "@/app/context/CartContext";
 type Picture = {
   id: number;
   title: string;
   season: string;
   style: string;
   image: string;
+  description:string,
   width: number;
   height: number;
   price: number;
@@ -18,14 +20,19 @@ type Picture = {
 export default function PictureGallery({
   season,
   style,
+  // title,
 }: {
   season: string;
   style: string;
+  // title:string;
 }) {
+
   const [pictures, setPictures] = useState<Picture[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const router =useRouter();
+  const { addToCart } = useCart();
 
   // Load pictures from API
   useEffect(() => {
@@ -94,7 +101,10 @@ export default function PictureGallery({
   if (pictures.length === 0) {
     return <p className="p-6">No pictures found.</p>;
   }
+  
 
+    
+ 
   return (
     <>
       {/* Product gallery */}
@@ -153,21 +163,74 @@ export default function PictureGallery({
 
                 <button
                   type="button"
-                  className="mt-3 rounded-2xl bg-[#f58f31]
-                             px-6 py-2 text-sm text-orange-200
-                             hover:bg-amber-600 cursor-pointer"
-                >
+                  className="mt-3 rounded-2xl bg-[#d26a58]
+                             px-6 py-2 text-sm text-[#faefe5]
+                             hover:bg-amber-900 cursor-pointer"
+               
+                 onClick={()=>{
+                  router.push(
+                    `/buy?id=${picture.id}`
+                  );
+                 }}
+               >
                   Buy Now
                 </button>
+{/* <button className="btn mt-3 rounded-2xl bg-[#f58f31]
+                             px-6 py-2 text-sm text-[#faefe5]
+                             hover:bg-amber-900 cursor-pointer"
+                             onClick={()=>{
+                              router.push(
+                                `/cart?id=${picture.id}`
+                              );
+                             }}>
+  <span className="text">Add Cart  </span>
+</button> */}
+{/* <button
+ className="btn mt-3 rounded-2xl bg-[#f58f31]
+                             px-6 py-2 text-sm text-[#faefe5]
+                             hover:bg-amber-900 cursor-pointer"
+  onClick={() => {
+  addToCart();
+    router.push(`/cart?id=${picture.id}`);
+  }}
+>
+  <span>Add Cart  </span>
+</button> */}
 
-                <button
-                  type="button"
-                  className="mt-3 rounded-2xl bg-[#DA6556]
-                             px-6 py-2 text-sm text-white
-                             hover:bg-[#da796c] cursor-pointer"
-                >
-                  Add Cart
-                </button>
+<button
+  className="btn mt-3 cursor-pointer rounded-2xl bg-[#f58f31]
+             px-6 py-2 text-sm text-[#faefe5]
+             transition-colors duration-300 hover:bg-amber-900"
+  onClick={async () => {
+    try {
+      const response = await fetch("/api/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: picture.id,
+          title: picture.title,
+          image: picture.image,
+          price: picture.price,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add item to cart");
+      }
+
+      addToCart();
+      router.push("/cart");
+    } catch (error) {
+      console.error(error);
+      alert("Unable to add item to cart.");
+    }
+  }}
+>
+  <span>Add Cart</span>
+</button>
+
               </div>
             </div>
           </article>
@@ -213,6 +276,7 @@ export default function PictureGallery({
                          max-w-full rounded-lg object-contain"
             />
           </div>
+         
         </div>
       )}
     </>
