@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="flex  w-full min-h-screen flex-col items-center
       gap-0 bg-[#FFF5F5] mt-0">
-      <h2 className=" w-80  p-1 mb-0 text-sm font-semibold text-center
+      <h2 className=" w-65  p-1 mb-0 text-sm font-semibold text-center
        bg-[#d26a58] mt-8 text-[#f8ecea] rounded-xl animate-bounce transform-3d shadow-amber-700 shadow-2xl">
         The Four Seasons Collection
       </h2>
@@ -89,26 +89,26 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
     className={`absolute bottom-1 right-70 z-80 rounded-xl border-2 border-[#F8B2B2] object-cover
       ${activeImage === 6 ? "animate-slide-up" : ""}`}
   />
-   {/* Summer */}
-  <Image
-    src="/Summer1.jpg"
-    alt="Summer"
-    width={220}
-    height={220}
-    className={`absolute right-8 top-0 z-40 rounded-xl border-2 border-[#F8B2B2] object-cover
-      ${activeImage === 7 ? "animate-slide-up" : ""}`}
-  />
+  
   {/* Winter */}
   <Image
     src="/Winter1.jpg"
     alt="Winter"
     width={220}
     height={220}
-    className={`absolute bottom-0 right-8 z-20 rounded-xl border-2 border-[#F8B2B2] object-cover
+    className={`absolute bottom-0 right-8 z-40 rounded-xl border-2 border-[#F8B2B2] object-cover
       ${activeImage === 8 ? "animate-slide-up" : ""}`}
   />
   
- 
+  {/* Summer */}
+  <Image
+    src="/Summer1.jpg"
+    alt="Summer"
+    width={220}
+    height={220}
+    className={`absolute right-8 top-0 z-20 rounded-xl border-2 border-[#F8B2B2] object-cover
+      ${activeImage === 7 ? "animate-slide-up" : ""}`}
+  />
 
 
 

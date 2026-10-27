@@ -16,7 +16,7 @@ export default function Autumn({style}:AutumnProps) {
 
        </h1>
        <div className='w-full  max-w-5xl px-4 mt-0  '>
-<PictureGallery season='autumn' style={style}/>
+<PictureGallery season='autumn' style={style} />
        </div>
         </div>
   )

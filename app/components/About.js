@@ -172,7 +172,10 @@ export default function AboutPage() {
 
             <button
               className="mt-5  mx-8 rounded-4xl bg-[#d26a58] px-4 py-2 text-white
-              hover:bg-[#d97462] cursor-pointer"
+              hover:bg-[#d97462] cursor-pointer         
+                     hover:transition-all duration-300
+                      hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30"
+
             >
               Buy journal
             </button>
@@ -184,7 +187,9 @@ export default function AboutPage() {
             {/* First row */}
             <div className="mb-5 flex flex-row gap-5">
               
-              <div className="h-40 w-50 rounded-2xl bg-[#d26a58] animation-bounce
+              <div className="h-40 w-50 rounded-2xl bg-[#d26a58] 
+               hover:transition-all duration-300 
+               hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30
                font-bold shadow-lg ">
                 <h1 className="mt-10 text-center text-4xl font-bold text-white">
                   30,000+
@@ -195,8 +200,11 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="h-40 w-50 rounded-2xl bg-[#978c7b] font-bold">
-                <h1 className="mt-10 text-center text-4xl font-bold text-white">
+              <div className="h-40 w-50 rounded-2xl bg-[#978c7b] font-bold
+               hover:transition-all duration-300 
+               hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30"
+        >
+                  <h1 className="mt-10 text-center text-4xl font-bold text-white">
                   30,000+
                 </h1>
 
@@ -209,7 +217,9 @@ export default function AboutPage() {
             {/* Second row */}
             <div className="mb-10 flex flex-row gap-5">
               
-              <div className="h-40 w-50 rounded-2xl bg-[#978c7b] font-bold">
+              <div className="h-40 w-50 rounded-2xl bg-[#978c7b] font-bold
+                             hover:transition-all duration-300 
+                             hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30">
                 <h1 className="mt-10 text-center text-4xl font-bold text-white">
                   200K
                 </h1>
@@ -219,7 +229,10 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="h-40 w-50 rounded-2xl bg-[#d26a58] font-bold">
+              <div className="h-40 w-50 rounded-2xl bg-[#d26a58] font-bold          
+                   hover:transition-all duration-300 
+                   hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30"
+>
                 <h1 className="mt-10 text-center text-4xl font-bold text-white">
                   10Y
                 </h1>

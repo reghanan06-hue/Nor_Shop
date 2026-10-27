@@ -22,14 +22,14 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="/autumn"
+              href="/autumn/classic"
               className="transition-colors hover:text-orange-300"
             >
               Clothes of Autumn
             </Link>
 
             <Link
-              href="/winter"
+              href="/winter/classic"
               className="transition-colors hover:text-orange-300"
             >
               Clothes of Winter
@@ -84,7 +84,7 @@ export default function Footer() {
 
             <Link
               href="/terms"
-              className="transition-colors text-[#f5b7ab] hover:text-orange-300 "
+              className="transition-colors  hover:text-orange-300 "
             >
               Terms & Conditions
             </Link>

@@ -5,7 +5,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, User, ShoppingCart } from "lucide-react";
-
+import { useState } from "react";
+import { useCart } from "@/app/context/CartContext";
 type Category = {
   name: string;
   href: string;
@@ -18,6 +19,7 @@ type SeasonMenuProps = {
 };
 
 export default function Navbar() {
+  // const [cartCount, setCartCount] = useState(0);
   const springCategories: Category[] = [
     { name: "CLASSIC", href: "/spring/classic" },
     { name: "MODERN", href: "/spring/modern" },
@@ -66,7 +68,8 @@ export default function Navbar() {
           <Link
             key={category.name}
             href={category.href}
-            className="block w-full whitespace-nowrap px-4 py-2 text-sm text-[#978c7b] transition-colors hover:bg-orange-50 hover:text-[#d26a58]"
+            className="block w-full whitespace-nowrap px-4 py-2 text-sm 
+            text-[#978c7b] transition-colors hover:bg-red-100 hover:text-[#d26a58]"
           >
             {category.name}
           </Link>
@@ -74,11 +77,13 @@ export default function Navbar() {
       </div>
     </div>
   );
+const { cartCount } = useCart();
 
   return (
     <>
       {/* Bandeau de livraison */}
-      <div className="flex h-10 w-full items-center justify-center border-b border-black bg-rose-950 px-2 text-center font-mono text-sm text-[#FFDCDC]">
+      <div className="flex h-10 w-full items-center justify-center border-b
+       border-black bg-rose-950 px-2 text-center font-mono text-sm text-[#FFDCDC]">
         Free delivery with Mondial Relay on orders over €80.
       </div>
 
@@ -98,7 +103,7 @@ export default function Navbar() {
 
           <h1 className="-ml-6 whitespace-nowrap font-[Pacifico] text-xl
            text-[#d26a58]  hover:text-amber-800">
-            Nor shop
+            Nor Shop
           </h1>
         </Link>
 
@@ -106,7 +111,8 @@ export default function Navbar() {
         <nav className="flex items-center justify-center gap-8">
           <Link
             href="/"
-            className="whitespace-nowrap text-sm text-[#d26a58] hover:text-orange-900"
+            className="whitespace-nowrap text-sm text-[#d26a58]
+             hover:text-orange-900"
           >
             Home
           </Link>
@@ -154,15 +160,25 @@ export default function Navbar() {
             <User size={20} />
           </Link>
 
-          <Link
-            href="/cart"
-            className="text-[#790D16] hover:opacity-70"
-            aria-label="Shopping cart"
-          >
-            <ShoppingCart size={22} />
-          </Link>
+          
+<Link
+  href="/cart"
+  aria-label={`Shopping cart: ${cartCount} items`}
+  className="relative inline-flex text-[#790D16] hover:opacity-70"
+>
+  <ShoppingCart size={22} />
+
+  {cartCount > 0 && (
+    <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-rose-950 px-1 text-xs font-bold text-white">
+      {cartCount}
+    </span>
+  )}
+</Link>
+
         </div>
       </header>
     </>
   );
 }
+
+

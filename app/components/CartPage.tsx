@@ -83,7 +83,7 @@ export default function CartPage() {
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold text-[#d26a58]">
+      <h1 className="mb-6 text-3xl font-bold text-[#d26a58] text-center">
         My Shopping Cart
       </h1>
 
@@ -94,12 +94,12 @@ export default function CartPage() {
       )}
 
       {items.length === 0 ? (
-        <div>
-          <p>Your cart is empty.</p>
-
+        <div >
+          <p className="text-center">Your cart is empty.</p>
+{/* mt-4 inline-block underline */}
           <Link
             href="/"
-            className="mt-4 inline-block underline"
+            className=" text-center"
           >
             Continue Shopping
           </Link>
@@ -110,7 +110,8 @@ export default function CartPage() {
             {items.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center gap-4 rounded-xl border p-3"
+                className="flex items-center gap-4 rounded-xl 
+                border border-red-100 border-2 p-3 bg-[#FFF5F5]"
               >
                 <Image
                   src={item.image}
@@ -163,8 +164,9 @@ export default function CartPage() {
             </p>
 
             <Link
-              href="/"
-              className="mt-4 inline-block rounded-lg bg-[#d26a58] px-5 py-2 text-white hover:opacity-90"
+              href="/" 
+              className="mt-4 inline-block rounded-3xl 
+              bg-[#d26a58] px-5 py-2 text-white hover:opacity-90"
             >
               Continue Shopping
             </Link>
