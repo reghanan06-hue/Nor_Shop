@@ -22,3 +22,23 @@ body {
 .animate-slide-up {
   animation: slide-up 0.8s ease-out both;
 }
+
+
+.btn {
+  overflow: hidden;
+}
+
+.text {
+  display: inline-block;
+}
+
+.btn:hover .text {
+  animation: slideText 0.5s ease;
+}
+
+@keyframes slideText {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(100%); opacity: 0; }
+  51%  { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
