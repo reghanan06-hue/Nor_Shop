@@ -1,11 +1,11 @@
 
-
 "use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Trash2 } from "lucide-react";
+import { Trash2, ShoppingBag  } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type CartItem = {
   id: number;
@@ -21,6 +21,9 @@ export default function CartPage() {
   const [error, setError] = useState("");
   const [removingId, setRemovingId] = useState<number | null>(null);
 
+  const router = useRouter();
+
+  // Load cart items
   async function loadCart() {
     try {
       setError("");
@@ -34,7 +37,7 @@ export default function CartPage() {
       }
 
       const data = await response.json();
-      setItems(data.items);
+      setItems(data.items ?? []);
     } catch {
       setError("Unable to load your cart. Please try again.");
     } finally {
@@ -46,6 +49,7 @@ export default function CartPage() {
     loadCart();
   }, []);
 
+  // Remove an item from the cart
   async function removeItem(id: number) {
     try {
       setRemovingId(id);
@@ -65,9 +69,7 @@ export default function CartPage() {
       }
 
       const data = await response.json();
-
-      // Update the page with the cart returned by the API.
-      setItems(data.items);
+      setItems(data.items ?? []);
     } catch {
       setError("Unable to remove this item. Please try again.");
     } finally {
@@ -75,15 +77,27 @@ export default function CartPage() {
     }
   }
 
+  // Redirect to the buy page for the selected product
+  function handleBuy(item: CartItem) {
+    router.push(`/buy?id=${item.id}`);
+  }
+
+  const total = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
   if (loading) {
     return (
-      <p className="p-6 text-center">Loading cart...</p>
+      <p className="p-6 text-center">
+        Loading cart...
+      </p>
     );
   }
 
   return (
-    <main className="mx-auto max-w-4xl px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold text-[#d26a58] text-center">
+    <main className="mx-auto flex max-w-xl flex-col items-center justify-center px-8 py-8">
+      <h1 className="mb-6 text-center text-3xl font-bold text-[#d26a58]">
         My Shopping Cart
       </h1>
 
@@ -94,24 +108,25 @@ export default function CartPage() {
       )}
 
       {items.length === 0 ? (
-        <div >
-          <p className="text-center">Your cart is empty.</p>
-{/* mt-4 inline-block underline */}
+        <div className="text-center">
+          <p className="font-bold text-[#978c7b]">
+            Your cart is empty.
+          </p>
+
           <Link
             href="/"
-            className=" text-center"
+            className="font-bold text-[#978c7b] underline hover:text-[#d26a58]"
           >
             Continue Shopping
           </Link>
         </div>
       ) : (
         <>
-          <div className="space-y-3">
+          <div className="w-full space-y-3">
             {items.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center gap-4 rounded-xl 
-                border border-red-100 border-2 p-3 bg-[#FFF5F5]"
+                className="flex items-center gap-4 rounded-xl border-2 border-red-100 bg-[#FFF5F5] p-3"
               >
                 <Image
                   src={item.image}
@@ -122,7 +137,7 @@ export default function CartPage() {
                 />
 
                 <div className="min-w-0 flex-1">
-                  <h2 className="truncate font-semibold">
+                  <h2 className="truncate font-semibold text-[#978c7b]">
                     {item.title}
                   </h2>
 
@@ -135,15 +150,32 @@ export default function CartPage() {
                   </p>
                 </div>
 
+                {/* Buy button */}
+                <button
+                  type="button"
+                  onClick={() => handleBuy(item)}
+                  aria-label={`Buy ${item.title}`}
+                  title="Buy this product"
+                  className="shrink-0 cursor-pointer text-rose-900 hover:text-[#d26a58]"
+                >
+                  <ShoppingBag  size={22} />
+                </button>
+
+                {/* Remove button */}
                 <button
                   type="button"
                   onClick={() => removeItem(item.id)}
                   disabled={removingId === item.id}
                   aria-label={`Remove ${item.title}`}
-                  className="shrink-0 cursor-pointer text-red-500 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-50"
+                 title="Delete this product"
+
+                  className="shrink-0 cursor-pointer
+                   text-red-500 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {removingId === item.id ? (
-                    <span className="text-sm">Removing...</span>
+                    <span className="text-xs">
+                      Removing...
+                    </span>
                   ) : (
                     <Trash2 size={20} />
                   )}
@@ -152,21 +184,15 @@ export default function CartPage() {
             ))}
           </div>
 
-          <div className="mt-6 border-t pt-4 text-right">
+          {/* Cart total */}
+          <div className="mt-6 w-full border-t pt-4 text-right text-orange-400">
             <p className="text-lg font-bold">
-              Total:{" "}
-              {items.reduce(
-                (total, item) =>
-                  total + item.price * item.quantity,
-                0
-              )}{" "}
-              MD
+              Total: {total} MD
             </p>
 
             <Link
-              href="/" 
-              className="mt-4 inline-block rounded-3xl 
-              bg-[#d26a58] px-5 py-2 text-white hover:opacity-90"
+              href="/"
+              className="mt-4 inline-block rounded-3xl bg-[#d26a58] px-5 py-2 text-white hover:opacity-90"
             >
               Continue Shopping
             </Link>
