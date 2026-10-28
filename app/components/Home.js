@@ -42,7 +42,7 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
     alt="Spring"
     width={220}
     height={220}
-    className={`absolute left-8 top-0 z-40 rounded-xl border-2 border-[#F8B2B2] object-cover
+    className={`absolute left-8 top-0 z-40 rounded-t-xl border-2 border-b-0 border-[#F8B2B2] object-cover
       ${activeImage === 0 ? "animate-slide-up" : ""}`}
   />
   {/* Autumn */}
@@ -51,7 +51,8 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
     alt="Autumn"
     width={220}
     height={220}
-    className={`absolute bottom-0 left-8 z-40 rounded-xl object-cover border-2 border-[#F8B2B2]
+    className={`absolute bottom-0 left-8 z-40 
+       rounded-b-xl object-cover border-2 border-t-0 border-[#F8B2B2]
       ${activeImage === 1 ? "animate-slide-up" : ""}`}
   />
  <Image
@@ -59,7 +60,7 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
     alt="Spring"
     width={220}
     height={220}
-    className={`absolute left-70 top-0 z-40 rounded-xl border-2 border-[#F8B2B2] object-cover
+    className={`absolute left-70 top-0 z-40 rounded-t-xl border-2 border-b-0 border-[#F8B2B2] object-cover
       ${activeImage === 2 ? "animate-slide-up" : ""}`}
   />
   <Image
@@ -67,7 +68,7 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
     alt="Winter"
     width={220}
     height={220}
-    className={`absolute bottom-0 left-70 z-40 rounded-xl border-2 border-[#F8B2B2] object-cover
+    className={`absolute bottom-0 left-70 z-40 rounded-b-xl border-2 border-t-0 border-[#F8B2B2] object-cover
       ${activeImage === 3 ? "animate-slide-up" : ""}`}
   />
  
@@ -76,7 +77,7 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
     alt="Spring"
     width={220}
     height={220}
-    className={`absolute right-70 top-0 z-20 rounded-xl border-2 border-[#F8B2B2] object-cover
+    className={`absolute right-70 top-0 z-20 rounded-t-xl border-2  border-b-0 border-[#F8B2B2] object-cover
       ${activeImage === 4 ? "animate-slide-up" : ""}`}
   />
  
@@ -86,7 +87,7 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
     alt="Winter"
     width={220}
     height={220}
-    className={`absolute bottom-1 right-70 z-80 rounded-xl border-2 border-[#F8B2B2] object-cover
+    className={`absolute bottom-1 right-70 z-80 rounded-b-xl border-2 border-t-0 border-[#F8B2B2] object-cover
       ${activeImage === 6 ? "animate-slide-up" : ""}`}
   />
   
@@ -96,7 +97,7 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
     alt="Winter"
     width={220}
     height={220}
-    className={`absolute bottom-0 right-8 z-40 rounded-xl border-2 border-[#F8B2B2] object-cover
+    className={`absolute bottom-0 right-8 z-40 rounded-b-xl border-2 border-t-0 border-[#F8B2B2] object-cover
       ${activeImage === 8 ? "animate-slide-up" : ""}`}
   />
   
@@ -106,7 +107,7 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
     alt="Summer"
     width={220}
     height={220}
-    className={`absolute right-8 top-0 z-20 rounded-xl border-2 border-[#F8B2B2] object-cover
+    className={`absolute right-8 top-0 z-20 rounded-t-xl border-2 border-b-0  border-[#F8B2B2] object-cover
       ${activeImage === 7 ? "animate-slide-up" : ""}`}
   />
 
