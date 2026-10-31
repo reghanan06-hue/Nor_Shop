@@ -10,7 +10,8 @@ export default function Footer() {
     rounded-xl border-2 border-[#F8B2B2] gap-5">
                       
 
-      <div className="mx-auto flex min-h-[400px] flex-col gap-10 px-6 py-10 md:flex-row md:justify-between md:px-16 lg:px-24">
+      <div className="mx-auto flex min-h-400px flex-col
+       gap-10 px-6 py-10 md:flex-row md:justify-between md:px-16 lg:px-24">
         {/* Navigation 1 */}
         <div className="flex items-start justify-center pt-24">
           <nav className="flex flex-col gap-4 text-[#FFDCDC]">
@@ -93,11 +94,15 @@ export default function Footer() {
 
         {/* Subscribe */}
         <form className="flex items-center justify-center  ">
-<h5 className="p-2 text-sm font-light text-center mt-1 mx-4 rounded-xl font-[Pacifico] text-[#f5b7ab]">
+  <h5 className="px-2 py-2 text-light font-(--font-pacifico) text-center
+  mt-1 mx-4 
+  text-[#eab3a9]">
   Join the Nor Shop Family
-</h5>    
+</h5>
           <div className="flex   bg-amber-300 rounded-lg border border-[#F8B2B2] shadow-5xl">
             
+
+
             <input
               type="email"
               placeholder="Enter your email"

@@ -17,8 +17,9 @@ export default function Home() {
   return (
     <div className="flex  w-full min-h-screen flex-col items-center
       gap-0 bg-[#FFF5F5] mt-0">
-      <h2 className=" w-65  p-1 mb-0 text-sm font-semibold text-center
-       bg-[#d26a58] mt-8 text-[#f8ecea] rounded-xl animate-bounce transform-3d shadow-amber-700 shadow-2xl">
+      {/* <h2 className=" w-65  p-1 mb-0 text-sm font-semibold text-center
+       bg-[#d26a58] mt-8 text-[#f8ecea] rounded-xl 
+       animate-bounce transform-3d shadow-amber-700 shadow-2xl">
         The Four Seasons Collection
       </h2>
       <h1 className=" 
@@ -29,7 +30,29 @@ The architecture of Modest Grace
 <p className="text-[#EA9D9D] text-sm font-light
  text-center mt-1 mx-4 rounded-xl font-[Pacifico] mb-4"> 
 Elegant hijabs and modest clothing for every season, combining comfort, timeless beauty, and effortless grace.
-</p>
+</p> */}
+
+
+
+  <h2 className="w-fit px-4 py-2 mb-0 mt-8 text-sm
+    font-semibold text-center bg-[#d26a58]
+    text-[#f8ecea] rounded-full 
+     animate-bounce transform-3d shadow-amber-700 shadow-md">
+    The Four Seasons Collection
+  </h2>
+
+  <h1 className="px-4 py-2 mt-6 text-3xl sm:text-4xl
+    font-normal text-center font-[Pacifico]
+    text-[#d26a58]">
+    The Architecture of Modest Grace
+  </h1>
+
+  <p className="max-w-lg px-5 text-[#978c7b] text-sm
+    sm:text-base font-normal text-center mt-3 mb-6
+    leading-7">
+    Elegant hijabs and modest clothing for every season,
+    combining comfort, timeless beauty, and effortless grace.
+  </p>
 
 
 <div className="relative mx-auto mt-6 h-[600px] w-full max-w-5xl mb-15"> 
@@ -119,6 +142,9 @@ Elegant hijabs and modest clothing for every season, combining comfort, timeless
 </div>
 
     </div>
+
+
+
   )
 }
 

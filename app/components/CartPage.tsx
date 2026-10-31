@@ -109,7 +109,7 @@ export default function CartPage() {
 
       {items.length === 0 ? (
         <div className="text-center">
-          <p className="font-bold text-[#978c7b]">
+          <p className=" text-sm text-[#978c7b] mb-5">
             Your cart is empty.
           </p>
 

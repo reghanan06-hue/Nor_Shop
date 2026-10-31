@@ -102,7 +102,7 @@ export default function Contact() {
           <button
             type="submit"
             className=" mx-auto mt-2 w-full rounded-xl
-             bg-[#d26a58] px-6 py-3 text-sm font-semibold
+             bg-[#d26a58] px-14 py-3 text-sm font-semibold
               text-white transition duration-200
                hover:bg-[#f6826d] 
                focus:outline-none focus:ring-2

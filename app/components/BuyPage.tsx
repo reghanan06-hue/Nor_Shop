@@ -140,7 +140,7 @@ export default function BuyPage() {
   }
 
   return (
-    <main className="mx-auto w-full max-w-5xl px-9 p-5">
+    <main className="mx-auto w-full max-w-5xl px-9 p-5   ">
       <h1 className="mb-8 text-center text-2xl font-bold text-[#d26a58]">
         {picture.title}
       </h1>
@@ -148,7 +148,7 @@ export default function BuyPage() {
       <div className="flex flex-col items-center justify-center 
       gap-8 md:flex-row md:items-start">
         {/* Product image */}
-        <div className="w-full max-w-sm">
+        <div className="w-full max-w-sm ">
           <Image
             src={picture.image}
             alt={picture.title}
@@ -159,7 +159,7 @@ export default function BuyPage() {
         </div>
 
         {/* Product details */}
-        <section className="w-full max-w-md rounded-3xl bg-[#FFF5F5] p-6">
+        <section className="w-full max-w-md rounded-3xl bg-[#FFF5F5] p-6 h-130">
           <p className="mb-6 text-base text-[#978c7b]">
             {picture.description}
           </p>
@@ -167,7 +167,7 @@ export default function BuyPage() {
           {/* Size */}
           <h2 className="mb-2 text-sm font-bold text-[#978c7b]">Size:</h2>
 
-          <div className="mb-6 flex flex-wrap gap-3">
+          <div className="mb-6 flex flex-wrap gap-3 ">
             {sizes.map((size) => (
               <button
                 key={size}

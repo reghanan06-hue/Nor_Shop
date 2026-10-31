@@ -119,7 +119,7 @@ export default function PictureGallery({
                 width={picture.width}
                 height={picture.height}
                 // className="h-auto w-full rounded-lg object-cover"
-                  className="h-[480px] w-[500px] rounded-lg object-cover"
+                  className="h-120 w-1250px rounded-lg object-cover"
 
               />
 
@@ -240,7 +240,7 @@ export default function PictureGallery({
       {/* Full-screen image zoom popup */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[9999] flex items-center
+          className="fixed inset-0 z-\[9999\] flex items-center
                      justify-center bg-black/85 p-4"
           onClick={() => setSelectedImage(null)}
           role="dialog"

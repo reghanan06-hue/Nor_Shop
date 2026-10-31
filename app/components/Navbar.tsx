@@ -19,7 +19,8 @@ type SeasonMenuProps = {
 };
 
 export default function Navbar() {
-  // const [cartCount, setCartCount] = useState(0);
+
+  const [open, setOpen] = useState(false);
   const springCategories: Category[] = [
     { name: "CLASSIC", href: "/spring/classic" },
     { name: "MODERN", href: "/spring/modern" },
@@ -43,7 +44,10 @@ export default function Navbar() {
     { name: "MODERN", href: "/summer/modern" },
     { name: "SPORTS", href: "/summer/sports" },
   ];
-
+  // const Auth: Category[] = [
+  //   { name: "login", href: "/auth/login" },
+  //   { name: "register", href: "/auth/register" },
+  // ];
   // Composant réutilisable pour chaque saison
   const SeasonMenu = ({
     title,
@@ -63,7 +67,9 @@ export default function Navbar() {
       </Link>
 
       {/* Sous-menu vertical */}
-      <div className="absolute left-0 top-full z-50 hidden min-w-40 flex-col rounded-md border border-gray-200 bg-white py-2 shadow-lg group-hover:flex group-focus-within:flex">
+      <div className="absolute left-0 top-full z-50 hidden min-w-40
+       flex-col rounded-md border border-gray-200
+        bg-white py-2 shadow-lg group-hover:flex group-focus-within:flex">
         {categories.map((category) => (
           <Link
             key={category.name}
@@ -108,7 +114,7 @@ const { cartCount } = useCart();
         </Link>
 
         {/* Navigation */}
-        <nav className="flex items-center justify-center gap-8">
+        <nav className="flex items-center justify-center gap-8 hover:opacity-100">
           <Link
             href="/"
             className="whitespace-nowrap text-sm text-[#d26a58]
@@ -146,25 +152,44 @@ const { cartCount } = useCart();
         <div className="flex shrink-0 items-center gap-4">
           <Link
             href="/contact"
-            className="text-[#790D16] hover:opacity-70"
+            className="text-[#d26a58] hover:opacity-70 hover:text-orange-900"
             aria-label="Contact"
+
           >
             <Mail size={20} />
           </Link>
 
-          <Link
+          {/* <Link
             href="/about"
-            className="text-[#790D16] hover:opacity-70"
+            className="text-[#d26a58] hover:opacity-70 hover:text-orange-900"
             aria-label="About"
           >
             <User size={20} />
-          </Link>
+          </Link> */}
+  <div className="relative">
+      <button onClick={() => setOpen(!open)}>
+        <User size={20} className="text-[#d26a58] cursor-pointer" />
+      </button>
 
+      {open && (
+        <div className="absolute  right-0 mt-2 w-28 mx-[-2]
+         rounded bg-white shadow-lg  ">
+          <Link href="/user" className="block p-2 
+           hover:bg-red-100 text-[#978c7b] cursor-pointer mt-2 hover:text-[#d26a58]">
+            Sign In
+          </Link>
+          <Link href="/sign-up" className="block p-2
+           hover:bg-red-100  text-[#978c7b] cursor-pointer hover:text-[#d26a58]">
+            Sign Up
+          </Link>
+        </div>
+      )}
+    </div>
           
 <Link
   href="/cart"
   aria-label={`Shopping cart: ${cartCount} items`}
-  className="relative inline-flex text-[#790D16] hover:opacity-70"
+  className="relative inline-flex text-[#d26a58] hover:opacity-70 hover:text-orange-900"
 >
   <ShoppingCart size={22} />
 
