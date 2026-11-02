@@ -14,17 +14,28 @@ export default function AdminPage() {
  <div className='flex flex-col gap-2 mb-3' >
         <label htmlFor="username" className='text-lg font-semibold
          text-[#978c7b] mt-14'>Username:</label>
-        <input type="text" id="username" name="username"
-         className='border border-orange-200 rounded-md 
-          w-90 py-2  text-[#978c7b]' />
+        <input
+         type="text" 
+         id="username" 
+         name="username"
+         className="w-90 rounded-md border
+   border-orange-200 px-3 py-2 text-[#978c7b] 
+   outline-none transition focus:border-[#d26a58] focus:ring-2 focus:ring-orange-200"
+ />
       </div>
 
  <div className='flex flex-col gap-2 mb-3  '>
         <label htmlFor="password" className='text-lg font-semibold 
          text-[#978c7b]'>Password:</label>
-        <input type="password" id="password" name="password"
-         className='border border-orange-200 rounded-md 
-          w-90 py-2  text-[#978c7b]' />
+      <input
+  type="password"
+  id="password"
+  name="password"
+  placeholder="Enter your password"
+  className="w-90 rounded-md border
+   border-orange-200 px-3 py-2 text-[#978c7b] 
+   outline-none transition focus:border-[#d26a58] focus:ring-2 focus:ring-orange-200"
+/>
       </div>
       <button type="submit" 
       onClick={() => router.push('/admin/dashboard')}
@@ -36,3 +47,5 @@ export default function AdminPage() {
     </>
   )
 }
+
+

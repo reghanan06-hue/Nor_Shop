@@ -11,7 +11,8 @@ export default function Autumn({style}:AutumnProps) {
   <div className="flex min-h-screen 
   flex-col items-center 
   bg-[#FFF5F5] gap-4 dark:bg-black ">
-      <h1 className="text-2xl font-bold capitalize text-[#d26a58] mt-6 mb-0">
+      <h1 className="text-2xl font-bold capitalize
+       text-[#d26a58] mt-6 mb-0">
         Clothes of Autumn - {style}
 
        </h1>

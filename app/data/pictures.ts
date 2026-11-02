@@ -10,7 +10,7 @@ export const pictures = [
     color: "#C4A4DA",
     image: "/images/sports-spring1.jpg",
     width: 600,
-    height: 800,
+    height: 400,
     price: 200,
   },
   {
@@ -23,7 +23,7 @@ export const pictures = [
     color: "#C4A4DA",
     image: "/images/sports-spring2.jpg",
     width: 600,
-    height: 800,
+    height: 400,
     price: 200,
   },
   {
@@ -36,7 +36,7 @@ export const pictures = [
     color: "#C4A4DA",
     image: "/images/sports-spring3.jpg",
     width: 600,
-    height: 800,
+    height: 400,
     price: 200,
   },
   {
@@ -195,7 +195,7 @@ description: "A modern and elegant summer outfit designed for hijab fashion, com
   },
   {
     id: 16,
-    title: "Classic Summer Outfit 2",
+    title: "Classic Summer Outfit 1",
     description: "A versatile classic summer outfit designed for simple, comfortable, and timeless everyday styling.",
   style: "classic",
     season: "summer",
@@ -208,7 +208,7 @@ description: "A modern and elegant summer outfit designed for hijab fashion, com
   },
   {
     id: 17,
-    title: "Classic Summer Outfit 1",
+    title: "Classic Summer Outfit 2",
     description: "A versatile classic summer outfit designed for simple, comfortable, and timeless everyday styling.",
     style: "classic",
     season: "summer",

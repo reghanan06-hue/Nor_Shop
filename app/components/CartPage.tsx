@@ -4,8 +4,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Trash2, ShoppingBag  } from "lucide-react";
+import { Trash2, ShoppingBag } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/app/context/CartContext";
 
 type CartItem = {
   id: number;
@@ -22,24 +23,34 @@ export default function CartPage() {
   const [removingId, setRemovingId] = useState<number | null>(null);
 
   const router = useRouter();
+  const { setCartItems } = useCart();
 
-  // Load cart items
+  // Charger le panier et synchroniser la Navbar
   async function loadCart() {
     try {
       setError("");
 
       const response = await fetch("/api/cart", {
+        method: "GET",
         cache: "no-store",
       });
 
       if (!response.ok) {
-        throw new Error("Unable to load cart.");
+        throw new Error("Unable to load cart");
       }
 
       const data = await response.json();
-      setItems(data.items ?? []);
-    } catch {
-      setError("Unable to load your cart. Please try again.");
+
+      const updatedItems: CartItem[] = Array.isArray(data.items)
+        ? data.items
+        : [];
+
+      setItems(updatedItems);
+      setCartItems(updatedItems);
+
+    } catch (error) {
+      console.error(error);
+      setError("Impossible de charger votre panier.");
     } finally {
       setLoading(false);
     }
@@ -49,7 +60,7 @@ export default function CartPage() {
     loadCart();
   }, []);
 
-  // Remove an item from the cart
+  // Supprimer un produit et actualiser le compteur Navbar
   async function removeItem(id: number) {
     try {
       setRemovingId(id);
@@ -65,23 +76,54 @@ export default function CartPage() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to remove item.");
+        throw new Error("Failed to remove item");
       }
 
       const data = await response.json();
-      setItems(data.items ?? []);
-    } catch {
-      setError("Unable to remove this item. Please try again.");
+
+      let updatedItems: CartItem[];
+
+      // Utiliser les articles renvoyés par DELETE
+      if (Array.isArray(data.items)) {
+        updatedItems = data.items;
+      } else {
+        // Sinon, recharger le panier depuis le serveur
+        const refreshResponse = await fetch("/api/cart", {
+          method: "GET",
+          cache: "no-store",
+        });
+
+        if (!refreshResponse.ok) {
+          throw new Error("Unable to refresh cart");
+        }
+
+        const refreshData = await refreshResponse.json();
+
+        updatedItems = Array.isArray(refreshData.items)
+          ? refreshData.items
+          : [];
+      }
+
+      // Mise à jour de CartPage
+      setItems(updatedItems);
+
+      // Mise à jour immédiate de Navbar
+      setCartItems(updatedItems);
+
+    } catch (error) {
+      console.error(error);
+      setError("Impossible de supprimer ce produit.");
     } finally {
       setRemovingId(null);
     }
   }
 
-  // Redirect to the buy page for the selected product
+  // Acheter un produit
   function handleBuy(item: CartItem) {
     router.push(`/buy?id=${item.id}`);
   }
 
+  // Calculer le total
   const total = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -89,116 +131,142 @@ export default function CartPage() {
 
   if (loading) {
     return (
-      <p className="p-6 text-center">
-        Loading cart...
-      </p>
+      <div className="flex min-h-screen items-center justify-center">
+        <p className="text-lg">Loading cart...</p>
+      </div>
     );
   }
 
   return (
-    <main className="mx-auto flex max-w-xl flex-col items-center justify-center px-8 py-8">
-      <h1 className="mb-6 text-center text-3xl font-bold text-[#d26a58]">
-        My Shopping Cart
-      </h1>
+    <main className="min-h-screen bg-gray-50 px-4 py-10">
+      <div className="mx-auto max-w-5xl">
 
-      {error && (
-        <p className="mb-4 text-red-600" role="alert">
-          {error}
-        </p>
-      )}
+        <div className="mb-8 flex items-center justify-center gap-3">
 
-      {items.length === 0 ? (
-        <div className="text-center">
-          <p className=" text-sm text-[#978c7b] mb-5">
-            Your cart is empty.
-          </p>
-
-          <Link
-            href="/"
-            className="font-bold text-[#978c7b] underline hover:text-[#d26a58]"
-          >
-            Continue Shopping
-          </Link>
+          <h1 className="text-3xl font-bold text-[#d26a58]">
+            My Shopping Cart
+          </h1>
         </div>
-      ) : (
-        <>
-          <div className="w-full space-y-3">
-            {items.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center gap-4 rounded-xl border-2 border-red-100 bg-[#FFF5F5] p-3"
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={80}
-                  height={80}
-                  className="h-20 w-20 shrink-0 rounded-lg object-cover"
-                />
 
-                <div className="min-w-0 flex-1">
-                  <h2 className="truncate font-semibold text-[#978c7b]">
-                    {item.title}
-                  </h2>
+        {error && (
+          <p className="mb-5 rounded-lg bg-red-100 p-3 text-red-700">
+            {error}
+          </p>
+        )}
 
-                  <p className="text-sm text-gray-600">
-                    Price: {item.price} MD
-                  </p>
+        {items.length === 0 ? (
+          <div className="rounded-xl bg-white p-10 text-center shadow">
+            <ShoppingBag
+              size={50}
+              className="mx-auto mb-4 text-[#d26a58]"
+            />
 
-                  <p className="text-sm text-gray-600">
-                    Quantity: {item.quantity}
-                  </p>
-                </div>
+            <h2 className="mb-3 text-xl font-semibold text-[#978c7b]">
+              Your cart is empty
+            </h2>
 
-                {/* Buy button */}
-                <button
-                  type="button"
-                  onClick={() => handleBuy(item)}
-                  aria-label={`Buy ${item.title}`}
-                  title="Buy this product"
-                  className="shrink-0 cursor-pointer text-rose-900 hover:text-[#d26a58]"
-                >
-                  <ShoppingBag  size={22} />
-                </button>
-
-                {/* Remove button */}
-                <button
-                  type="button"
-                  onClick={() => removeItem(item.id)}
-                  disabled={removingId === item.id}
-                  aria-label={`Remove ${item.title}`}
-                 title="Delete this product"
-
-                  className="shrink-0 cursor-pointer
-                   text-red-500 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  {removingId === item.id ? (
-                    <span className="text-xs">
-                      Removing...
-                    </span>
-                  ) : (
-                    <Trash2 size={20} />
-                  )}
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {/* Cart total */}
-          <div className="mt-6 w-full border-t pt-4 text-right text-orange-400">
-            <p className="text-lg font-bold">
-              Total: {total} MD
+            <p className="mb-6 text-[#978c7b]">
+              Add some products to your cart.
             </p>
 
             <Link
               href="/"
-              className="mt-4 inline-block rounded-3xl bg-[#d26a58] px-5 py-2 text-white hover:opacity-90"
+              className="rounded-lg px-6 py-3 text-white bg-[#d26a58] hover:bg-orange-800"
             >
               Continue Shopping
             </Link>
           </div>
-        </>
-      )}
+        ) : (
+          <>
+            <div className="space-y-4">
+              {items.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex flex-col gap-4 rounded-xl
+                   bg-white p-4 shadow-sm sm:flex-row sm:items-center"
+                >
+                  <div className="relative h-28 w-full shrink-0 sm:w-28">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="rounded-lg object-cover"
+                      sizes="112px"
+                    />
+                  </div>
+
+                  <div className="flex-1">
+                    <h2 className="text-lg font-semibold text-red-400">
+                      {item.title}
+                    </h2>
+
+                    <p className="mt-2 text-[#978c7b]">
+                      Price: {item.price} MD
+                    </p>
+
+                    <p className="text-[#978c7b]">
+                      Quantity: {item.quantity}
+                    </p>
+
+                    <p className="mt-1 font-semibold text-[#978c7b]">
+                      Subtotal: {item.price * item.quantity} MD
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => handleBuy(item)}
+                      className="rounded-lg bg-[#d26a58] px-5 py-2
+                       text-white hover:bg-orange-800 cursor-pointer"
+                    >
+                      Buy Now
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => removeItem(item.id)}
+                      disabled={removingId === item.id}
+                      className="flex items-center gap-2 rounded-lg
+                       bg-red-100 px-4 py-2 text-red-600
+                        hover:bg-red-200 disabled:opacity-50 cursor-pointer"
+                    >
+                      <Trash2 size={18} />
+
+                      {removingId === item.id
+                        ? "Removing..."
+                        : "Delete"}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 rounded-xl bg-white p-6 shadow-sm">
+              <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold text-[#978c7b]">
+                  Total
+                </h2>
+
+                <p className="text-2xl font-bold text-[#d26a58]">
+                  {total} MD
+                </p>
+              </div>
+
+              <button
+              onClick={()=>{
+                router.push("/");
+              }}
+                className="btn mt-6 w-full rounded-lg
+                 bg-[#d26a58] py-3 font-semibold text-white
+                  hover:bg-orange-800 cursor-pointer"
+              >
+                 <span className="text">Continue Shopping</span>  
+              </button>
+            </div>
+          </>
+        )}
+      </div>
     </main>
   );
 }

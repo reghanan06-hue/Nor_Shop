@@ -145,10 +145,11 @@ export default function BuyPage() {
         {picture.title}
       </h1>
 
-      <div className="flex flex-col items-center justify-center 
-      gap-8 md:flex-row md:items-start">
-        {/* Product image */}
-        <div className="w-full max-w-sm ">
+      {/* <div className="flex flex-col items-center justify-center 
+      gap-8 md:flex-row md:items-start"> */}
+        <div className="flex flex-col items-stretch justify-center gap-8 md:flex-row">
+        {/* clothes image */}
+        {/* <div className="w-full max-w-sm ">
           <Image
             src={picture.image}
             alt={picture.title}
@@ -156,15 +157,23 @@ export default function BuyPage() {
             height={picture.height || 300}
             className="h-auto w-full rounded-xl object-cover"
           />
-        </div>
+        </div> */}
+        {/* Clothes image */}
+<div className="w-full max-w-md h-130">
+  <Image
+    src={picture.image}
+    alt={picture.title}
+    width={picture.width || 500}
+    height={picture.height || 500}
+    className="h-full w-full rounded-3xl object-cover"
+  />
+</div>
 
-        {/* Product details */}
-        <section className="w-full max-w-md rounded-3xl bg-[#FFF5F5] p-6 h-130">
-          <p className="mb-6 text-base text-[#978c7b]">
+        {/* clothes details */}
+<section className="w-full max-w-md h-130 overflow-y-auto rounded-3xl bg-[#FFF5F5] p-6">          <p className="mb-6 text-base text-[#978c7b]">
             {picture.description}
           </p>
 
-          {/* Size */}
           <h2 className="mb-2 text-sm font-bold text-[#978c7b]">Size:</h2>
 
           <div className="mb-6 flex flex-wrap gap-3 ">
@@ -186,7 +195,6 @@ export default function BuyPage() {
             ))}
           </div>
 
-          {/* Length */}
           <h2 className="mb-2 text-sm font-bold text-[#978c7b]">Length:</h2>
 
           <div className="mb-6 flex flex-wrap gap-3">
@@ -208,7 +216,6 @@ export default function BuyPage() {
             ))}
           </div>
 
-          {/* Quantity */}
           <h2 className="mb-2 text-sm font-bold text-[#978c7b]">Quantity:</h2>
 
           <div className="mb-6 flex items-center gap-5">
@@ -326,7 +333,8 @@ export default function BuyPage() {
             className="w-full rounded-xl border
              border-amber-500 bg-white 
              px-4 py-3 text-sm text-gray-700 outline-none
-              focus:border-[#d26a58] focus:ring-2 focus:ring-orange-200"
+              focus:border-[#d26a58] focus:ring-2
+               focus:ring-orange-200"
           />
         </div>
 
@@ -336,7 +344,7 @@ export default function BuyPage() {
           rounded-xl bg-[#d26a58] py-4 text-sm font-bold
            text-white transition hover:bg-amber-800"
         >
-          Confirm order · {totalPrice} MD
+         <span className="text">Confirm order   {totalPrice} MD </span>
         </button>
       </form>
     </main>

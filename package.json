@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.22",
+    "bcryptjs": "^3.0.3",
+    "jose": "^6.2.15",
     "lucide-react": "^1.49.0",
+    "mongodb": "^7.8.0",
     "next": "16.3.5",
     "react": "19.2.8",
     "react-dom": "19.2.8"

@@ -157,8 +157,8 @@ export default function AboutPage() {
 
         {/* Main section */}
         <div
-          className="mx-auto mt-10 mb-5 flex min-h-screen w-full max-w-6xl
-          flex-row items-start gap-12 rounded-b-4xl bg-[#FFF5F5] px-8"
+          className="mx-auto mt-10 mb-15 flex min-h-screen w-full max-w-6xl
+          flex-row items-start gap-12 rounded-b-4xl bg-[#FFF5F5] px-8 "
         >
           {/* Journal */}
           <div className="mt-[250px] w-1/2 ">
@@ -182,7 +182,7 @@ export default function AboutPage() {
           </div>
 
           {/* Statistics */}
-          <div className="mt-[150px] flex w-2/3 flex-col">
+          <div className="mt-[150px] flex w-2/3 flex-col ">
             
             {/* First row */}
             <div className="mb-5 flex flex-row gap-5">
@@ -247,11 +247,12 @@ export default function AboutPage() {
 
         </div>
 
-         <BenefitsPage/>
 
 
-        <hr className="border-[#978c7b] border-1 w-full mb-10"/>
+        {/* <hr className="border-[#d26a58] border-1 w-full mb-10"/> */}
                          <ReviewCard/>
+                                  <BenefitsPage/>
+
 
       </main>
     </>
