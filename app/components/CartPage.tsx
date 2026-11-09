@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Trash2, ShoppingBag } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/app/context/CartContext";
+import BenefitsPage from "./BenefitsPage";
 
 type CartItem = {
   id: number;
@@ -138,24 +139,25 @@ export default function CartPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 px-4 py-10">
-      <div className="mx-auto max-w-5xl">
+    <main className="min-h-screen pb-1 bg-red-50 px-4 py-10  rounded-b-4xl ">
+      <div className="mx-auto max-w-3xl  ">
 
-        <div className="mb-8 flex items-center justify-center gap-3">
+        <div className="flex items-center justify-center gap-3  ">
 
-          <h1 className="text-3xl font-bold text-[#d26a58]">
+          <h1 className="lg:text-3xl font-bold text-[#d26a58] text-2xl mb-4 ">
             My Shopping Cart
           </h1>
         </div>
 
         {error && (
-          <p className="mb-5 rounded-lg bg-red-100 p-3 text-red-700">
+          <p className="mb-5 rounded-lg bg-red-100 p-3 text-red-600">
             {error}
           </p>
         )}
 
         {items.length === 0 ? (
-          <div className="rounded-xl bg-white p-10 text-center shadow">
+          <div className="rounded-xl bg-white p-10 text-center shadow mb-9
+         ">
             <ShoppingBag
               size={50}
               className="mx-auto mb-4 text-[#d26a58]"
@@ -185,18 +187,21 @@ export default function CartPage() {
                   className="flex flex-col gap-4 rounded-xl
                    bg-white p-4 shadow-sm sm:flex-row sm:items-center"
                 >
-                  <div className="relative h-28 w-full shrink-0 sm:w-28">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="rounded-lg object-cover"
-                      sizes="112px"
-                    />
-                  </div>
+             <div className="relative mx-auto h-32 w-32 shrink-0
+                sm:mx-0 sm:h-36 sm:w-36
+                md:h-40 md:w-40
+                lg:h-[200px] lg:w-[240px]">
+  <Image
+    src={item.image}
+    alt={item.title}
+    fill
+    className="rounded-lg object-cover"
+    sizes="(max-width: 640px) 128px, (max-width: 1024px) 160px, 240px"
+  />
+</div>
 
-                  <div className="flex-1">
-                    <h2 className="text-lg font-semibold text-red-400">
+                  <div className="flex-1 ">
+                    <h2 className="text-lg font-semibold text-[#d26a58]">
                       {item.title}
                     </h2>
 
@@ -242,13 +247,13 @@ export default function CartPage() {
               ))}
             </div>
 
-            <div className="mt-8 rounded-xl bg-white p-6 shadow-sm">
-              <div className="flex items-center justify-between">
-                <h2 className="text-xl font-bold text-[#978c7b]">
+            <div className="mt-8 rounded-xl bg-white p-6  mb-9  shadow-sm  ">
+              <div className="flex items-center justify-between ">
+                <h2 className="text-xl font-bold text-[#978c7b] sm:text-2xl">
                   Total
                 </h2>
 
-                <p className="text-2xl font-bold text-[#d26a58]">
+                <p className="text-xl font-bold text-[#d26a58] sm:text-2xl">
                   {total} MD
                 </p>
               </div>
@@ -264,9 +269,12 @@ export default function CartPage() {
                  <span className="text">Continue Shopping</span>  
               </button>
             </div>
+
           </>
         )}
+
       </div>
+
     </main>
   );
 }

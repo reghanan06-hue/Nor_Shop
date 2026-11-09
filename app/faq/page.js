@@ -9,8 +9,9 @@ export default function AutumnPage() {
     <div className="flex min-h-screen flex-col items-center  gap-0 dark:bg-black ">
             <Navbar />
             <FAQPage />
-              <BenefitsPage/>
-            
+         <BenefitsPage />
+    
+
             <Footer/>
           </div>
   );

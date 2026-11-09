@@ -1,6 +1,8 @@
-'use client';
-import Image from 'next/image'
-import React from 'react'
+
+
+"use client";
+
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -8,143 +10,272 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveImage((prev) => (prev + 1) % 9);
+      setActiveImage((prev) => (prev + 1) % 8);
     }, 2000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="flex  w-full min-h-screen flex-col items-center
-      gap-0 bg-[#FFF5F5] mt-0">
-      {/* <h2 className=" w-65  p-1 mb-0 text-sm font-semibold text-center
-       bg-[#d26a58] mt-8 text-[#f8ecea] rounded-xl 
-       animate-bounce transform-3d shadow-amber-700 shadow-2xl">
+    <div className="flex min-h-screen w-full flex-col items-center
+      bg-[#FFF5F5]  pb-16 md:pb-0">
+
+      {/* TITLE */}
+      <h2 className="mt-8 mb-0 w-fit rounded-full
+        bg-[#d26a58] px-4 py-2 text-center text-sm
+        font-semibold text-[#f8ecea] shadow-md
+        shadow-amber-700 animate-bounce">
         The Four Seasons Collection
       </h2>
-      <h1 className=" 
-       p-2  text-3xl font-semibold text-center
-      mt-8 rounded-xl font-[Pacifico] text-[#d26a58]" >
-The architecture of Modest Grace
+
+      <h1 className="mt-6 px-4 py-2 text-center
+        text-2xl font-normal text-[#d26a58]
+        font-[Pacifico] sm:text-4xl">
+        The Architecture of Modest Grace
       </h1>
-<p className="text-[#EA9D9D] text-sm font-light
- text-center mt-1 mx-4 rounded-xl font-[Pacifico] mb-4"> 
-Elegant hijabs and modest clothing for every season, combining comfort, timeless beauty, and effortless grace.
-</p> */}
+
+<p className="
+  mt-3 mb-6
+  w-full max-w-lg
+  px-4 sm:px-5
+  mx-auto
+  text-center
+  text-sm sm:text-base
+  font-normal
+  leading-6 sm:leading-7
+  text-[#978c7b]
+">
+  Elegant hijabs and modest clothing for every season,
+  combining comfort, timeless beauty, and effortless grace.
+</p>
+      {/* DESKTOP / TABLET DESIGN */}
+      <div className="hidden md:block relative mx-auto mt-6
+        mb-12 h-[600px] w-full max-w-5xl">
+
+        {/* Spring */}
+        <Image
+          src="/Sp.png"
+          alt="Spring"
+          width={220}
+          height={300}
+          className={`absolute left-8 top-0 z-40
+            h-[300px] w-[220px] rounded-t-xl
+            border-2 border-b-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 0 ? "animate-slide-up" : ""}`}
+        />
+
+        {/* Autumn */}
+        <Image
+          src="/Autumn.jpg"
+          alt="Autumn"
+          width={220}
+          height={300}
+          className={`absolute bottom-0 left-8 z-40
+            h-[300px] w-[220px] rounded-b-xl
+            border-2 border-t-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 1 ? "animate-slide-up" : ""}`}
+        />
+
+        {/* Summer Classic */}
+        <Image
+          src="/images/classic-summer2.png"
+          alt="Summer Classic"
+          width={220}
+          height={300}
+          className={`absolute left-[260px] top-0 z-40
+            h-[300px] w-[220px] rounded-t-xl
+            border-2 border-b-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 2 ? "animate-slide-up" : ""}`}
+        />
+
+        {/* Autumn Sport */}
+        <Image
+          src="/images/autumn-sport1.jpg"
+          alt="Autumn Sport"
+          width={220}
+          height={300}
+          className={`absolute bottom-0 left-[260px] z-40
+            h-[300px] w-[220px] rounded-b-xl
+            border-2 border-t-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 3 ? "animate-slide-up" : ""}`}
+        />
+
+        {/* Spring Classic */}
+        <Image
+          src="/images/classic-spring3.jpg"
+          alt="Spring Classic"
+          width={220}
+          height={300}
+          className={`absolute right-[260px] top-0 z-20
+            h-[300px] w-[220px] rounded-t-xl
+            border-2 border-b-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 4 ? "animate-slide-up" : ""}`}
+        />
+
+        {/* Summer Modern */}
+        <Image
+          src="/images/modern-summer.png"
+          alt="Summer Modern"
+          width={220}
+          height={300}
+          className={`absolute bottom-0 right-[260px] z-40
+            h-[300px] w-[220px] rounded-b-xl
+            border-2 border-t-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 5 ? "animate-slide-up" : ""}`}
+        />
+
+        {/* Winter */}
+        <Image
+          src="/winter.jpg"
+          alt="Winter"
+          width={220}
+          height={300}
+          className={`absolute bottom-0 right-8 z-30
+            h-75 w-55 rounded-b-xl
+            border-4 border-t-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 6 ? "animate-slide-up" : ""}`}
+        />
+
+        {/* Summer */}
+        <Image
+          src="/Summer1.jpg"
+          alt="Summer"
+          width={220}
+          height={300}
+          className={`absolute right-8 top-0 z-20
+            h-[300px] w-[220px] rounded-t-xl
+            border-2 border-b-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 7 ? "animate-slide-up" : ""}`}
+        />
+
+      </div>
 
 
+      {/* MOBILE DESIGN */}
+<div className="relative mx-auto 
+  flex h-[400px] w-full  mb-15 max-w-[330px]
+  justify-center md:hidden">
+        {/* Spring */}
+        <Image
+          src="/Sp.png"
+          alt="Spring"
+          width={150}
+          height={200}
+          className={`absolute left-[1%] top-0 z-40
+            h-[200px] w-[150px] rounded-t-xl
+            border-2 border-b-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 0 ? "animate-slide-up" : ""}`}
+        />
 
-  <h2 className="w-fit px-4 py-2 mb-0 mt-8 text-sm
-    font-semibold text-center bg-[#d26a58]
-    text-[#f8ecea] rounded-full 
-     animate-bounce transform-3d shadow-amber-700 shadow-md">
-    The Four Seasons Collection
-  </h2>
+        {/* Autumn */}
+        <Image
+          src="/Autumn.jpg"
+          alt="Autumn"
+          width={150}
+          height={200}
+          className={`absolute bottom-0 left-[1%] z-40
+            h-50 w-37.5 rounded-b-xl
+            border-2 border-t-0 border-[#F8B2B2]
+            object-cover 
+            ${activeImage === 1 ? "animate-slide-up" : ""}`}
+        />
+ {/* Summer */}
+        <Image
+          src="/Summer1.jpg"
+          alt="Summer"
+          width={150}
+          height={200}
+          className={`absolute right-[1%] top-0 z-20
+            h-50 w-37.5 rounded-t-xl
+            border-2 border-b-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 2 ? "animate-slide-up" : ""}`}
+        />
+        {/* Winter */}
+        <Image
+          src="/Winter.jpg"
+          alt="Winter"
+          width={150}
+          height={200}
+          className={`absolute bottom-0 right-[1%] z-30
+            h-50 w-37.5 rounded-b-xl
+            border-2 border-t-0 border-[#F8B2B2]
+            object-cover
+            ${activeImage === 3 ? "animate-slide-up" : ""}`}
+        />
 
-  <h1 className="px-4 py-2 mt-6 text-3xl sm:text-4xl
-    font-normal text-center font-[Pacifico]
-    text-[#d26a58]">
-    The Architecture of Modest Grace
-  </h1>
+       
 
-  <p className="max-w-lg px-5 text-[#978c7b] text-sm
-    sm:text-base font-normal text-center mt-3 mb-6
-    leading-7">
-    Elegant hijabs and modest clothing for every season,
-    combining comfort, timeless beauty, and effortless grace.
-  </p>
+      </div>
 
+{/* // desgin 4 phone */}
 
-<div className="relative mx-auto mt-6 h-[600px] w-full max-w-5xl mb-15"> 
-  
+<div className="relative mx-auto 
+  flex h-[400px] w-full  max-w-[330px]
+  justify-center md:hidden mb-15">
 
-
- {/* Spring */}
-  <Image
-    src="/Sp.png"
-    alt="Spring"
-    width={220}
-    height={220}
-    className={`absolute left-8 top-0 z-40 rounded-t-xl border-2 border-b-0 border-[#F8B2B2] object-cover
-      ${activeImage === 0 ? "animate-slide-up" : ""}`}
-  />
-  {/* Autumn */}
-  <Image
-    src="/Autumn.jpg"
-    alt="Autumn"
-    width={220}
-    height={220}
-    className={`absolute bottom-0 left-8 z-40 
-       rounded-b-xl object-cover border-2 border-t-0 border-[#F8B2B2]
-      ${activeImage === 1 ? "animate-slide-up" : ""}`}
-  />
- <Image
-    src="/images/classic-summer2.png"
-    alt="Spring"
-    width={220}
-    height={220}
-    className={`absolute left-70 top-0 z-40 rounded-t-xl border-2 border-b-0 border-[#F8B2B2] object-cover
-      ${activeImage === 2 ? "animate-slide-up" : ""}`}
-  />
+  {/* Spring Sport */}
   <Image
     src="/images/autumn-sport1.jpg"
-    alt="Winter"
-    width={220}
-    height={220}
-    className={`absolute bottom-0 left-70 z-40 rounded-b-xl border-2 border-t-0 border-[#F8B2B2] object-cover
-      ${activeImage === 3 ? "animate-slide-up" : ""}`}
-  />
- 
-   <Image
-    src="/images/classic-spring3.jpg"
-    alt="Spring"
-    width={220}
-    height={220}
-    className={`absolute right-70 top-0 z-20 rounded-t-xl border-2  border-b-0 border-[#F8B2B2] object-cover
+    alt="Autumn Sport"
+    width={150}
+    height={200}
+    className={`absolute left-[1%] top-0 z-40
+      h-[200px] w-[150px]
+      rounded-t-xl border-2 border-b-0 border-[#F8B2B2]
+      object-cover
       ${activeImage === 4 ? "animate-slide-up" : ""}`}
   />
- 
- 
-   <Image
+
+  {/* Summer Modern */}
+  <Image
     src="/images/modern-summer.png"
-    alt="Winter"
-    width={220}
-    height={220}
-    className={`absolute bottom-1 right-70 z-80 rounded-b-xl border-2 border-t-0 border-[#F8B2B2] object-cover
+    alt="Summer Modern"
+    width={150}
+    height={200}
+    className={`absolute right-[1%] top-0 z-20
+      h-[200px] w-[150px]
+      rounded-t-xl border-2 border-b-0 border-[#F8B2B2]
+      object-cover
       ${activeImage === 6 ? "animate-slide-up" : ""}`}
   />
-  
+
+  {/* Autumn */}
+  <Image
+    src="/images/classic-summer1.png"
+    alt="Summer Classic"
+    width={150}
+    height={200}
+    className={`absolute bottom-0 left-[1%] z-40
+      h-[200px] w-[150px]
+      rounded-b-xl border-2 border-t-0 border-[#F8B2B2]
+      object-cover
+      ${activeImage === 5 ? "animate-slide-up" : ""}`}
+  />
+
   {/* Winter */}
   <Image
-    src="/Winter1.jpg"
-    alt="Winter"
-    width={220}
-    height={220}
-    className={`absolute bottom-0 right-8 z-40 rounded-b-xl border-2 border-t-0 border-[#F8B2B2] object-cover
-      ${activeImage === 8 ? "animate-slide-up" : ""}`}
-  />
-  
-  {/* Summer */}
-  <Image
-    src="/Summer1.jpg"
-    alt="Summer"
-    width={220}
-    height={220}
-    className={`absolute right-8 top-0 z-20 rounded-t-xl border-2 border-b-0  border-[#F8B2B2] object-cover
+    src="/images/classic-spring3.jpg"
+    alt="Spring Classic"
+    width={150}
+    height={200}
+    className={`absolute bottom-0 right-[1%] z-30
+      h-[200px] w-[150px]
+      rounded-b-xl border-2 border-t-0 border-[#F8B2B2]
+      object-cover
       ${activeImage === 7 ? "animate-slide-up" : ""}`}
   />
 
-
-
-
-
-  
 </div>
-
     </div>
-
-
-
-  )
+  );
 }
-

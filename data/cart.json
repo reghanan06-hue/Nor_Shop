@@ -1,16 +1,1 @@
-[
-  {
-    "id": 32,
-    "title": "Classic Autumn Outfit 2",
-    "image": "/images/classic-autumn1.png",
-    "price": 300,
-    "quantity": 1
-  },
-  {
-    "id": 4,
-    "title": "Modern Spring Outfit 1",
-    "image": "/images/modern-sping1.jpg",
-    "price": 240,
-    "quantity": 1
-  }
-]
+[]

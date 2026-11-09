@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -22,23 +21,31 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-pink-40">
-      <main className="mx-auto w-full max-w-6xl px-4 py-12">
-        <h1 className="text-center text-5xl font-bold text-[#d26a58]">
+    <div className="min-h-screen w-full bg-[#fef2f2] rounded-b-4xl">
+      {/* <main className="mx-auto w-full max-w-6xl px-4 py-12 "> */}
+      <main className="mx-auto w-full max-w-6xl px-4 pt-12 pb-20 sm:pb-12">
+        <h1 className="text-2xl font-bold md:text-4xl 
+         lg:text-5xl text-[#d26a58] text-center">
           Contact us 
         </h1>
 
-        <form
+        {/* <form
           onSubmit={handleSubmit}
           className="mx-auto mt-12 flex w-full
-           max-w-xl flex-col gap-6 rounded-2xl bg-[#fec8c8] p-6 shadow-md sm:p-8"
-        >
+           max-w-xl flex-col gap-6 rounded-2xl
+            bg-red-200 p-6 shadow-md sm:p-8 mb-2"
+        > */}
+       <form
+  onSubmit={handleSubmit}
+  className="mx-auto mt-12 mb-8 sm:mb-4 flex w-full max-w-xl flex-col
+    gap-2 sm:gap-2 rounded-2xl bg-red-200 p-6
+    shadow-md sm:p-8"
+>
           {/* Name */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="name"
-              className="text-sm font-bold text-[#797062]"
-            >
+              className="text-sm font-bold text-[#797062]" >
               Name :
             </label>
 
@@ -113,12 +120,10 @@ export default function Contact() {
           </button>
         </form>
 
-        <hr className="my-12 border border-[#d26a58] " />
+        {/* <hr className=" md:my-2 border border-[#d26a58]  " /> */}
 
-        <BenefistPages />
       </main>
 
-      <Footer />
     </div>
   );
 }

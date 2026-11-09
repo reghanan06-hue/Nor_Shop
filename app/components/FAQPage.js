@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import BenefitsPage from "./BenefitsPage";
 
 const faqs = [
   {
@@ -47,8 +48,10 @@ export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <main className="min-h-screen bg-white px-6 py-20">
-    <div className="mx-auto max-w-3xl">
+    <>
+    <main className=" hidden md:block min-h-screen bg-white px-6 py-20 ">
+      {/* {Design of desktop /tablet } */}
+    <div className=" mx-auto max-w-3xl">
         <h1 className="mb-4 text-center text-4xl font-bold text-[#d26a58]">
           Frequently Asked Questions
         </h1>
@@ -58,7 +61,7 @@ export default function FAQPage() {
         </p>
       
 
-        <div className="space-y-4">
+        <div className=" hidden md:block space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={faq.question}
@@ -71,7 +74,7 @@ export default function FAQPage() {
                   )
                 }
                 className="flex w-full items-center justify-between gap-4 text-left 
-                font-semibold text-[#896c65] hover:text-[#978c7b]"
+                font-semibold text-[#c36959] hover:text-[#978c7b]"
                 aria-expanded={openIndex === index}
               >
                 {faq.question}
@@ -98,6 +101,60 @@ export default function FAQPage() {
           ))}
         </div>
       </div>
+
+
     </main>
+    {/* {design of mobile} */}
+ <div className=" md:hidden  mx-auto max-w-xl mt-10 ">
+        <h1 className="mb-4 text-center text-2xl font-bold text-[#d26a58]">
+          Frequently Asked Questions
+        </h1>
+  
+        <p className="mb-6 text-center text-[#978c7b]">
+          Find answers to your questions below.
+        </p>
+              </div>
+
+               <div className=" md:hidden space-y-4 mb-2">
+          {faqs.map((faq, index) => (
+            <div
+              key={faq.question}
+              className="border-b border-gray-200 py-4 text-light"
+            >
+              <button
+                onClick={() =>
+                  setOpenIndex(
+                    openIndex === index ? null : index
+                  )
+                }
+                className="flex w-full items-center justify-between gap-2 text-left 
+                font-semibold text-sm text-[#c36959] hover:text-[#4f412d] mx-4"
+                aria-expanded={openIndex === index}
+              >
+                {faq.question}
+
+                <span className="text-xl mx-8">
+                  {openIndex === index ? "−" : "+"}
+                </span>
+              </button>
+
+              <div
+                className={`grid transition-all duration-300 ${
+                  openIndex === index
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="pt-4 leading-7 text-[#978c7b]">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+   
+              </>
   );
 }

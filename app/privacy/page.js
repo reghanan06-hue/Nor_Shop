@@ -7,7 +7,8 @@ export default function PrivacyPage() {
     <div className="flex min-h-screen flex-col items-center  gap-0 dark:bg-black ">
             <Navbar />
             <Privacy />
-            <BenefitsPage/>
+               <BenefitsPage />
+            
             <Footer/>
           </div>
   );

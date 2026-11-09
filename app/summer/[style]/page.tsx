@@ -26,7 +26,7 @@ export default async function SummerStylePage({
         <Summer style={normalizedStyle} />
       </main>
 
-      <Footer />
+      <Footer/>
     </div>
   );
 }

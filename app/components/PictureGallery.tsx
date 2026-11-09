@@ -218,7 +218,10 @@ export default function PictureGallery({
                   {addingId === picture.id ? "Adding..." : "Add Cart"}
                 </span>
               </button>
+
             </div>
+                          <hr className="md:hidden my-6 border-t border-[#fce4e0]  border-1" />
+
           </article>
         ))}
       </div>

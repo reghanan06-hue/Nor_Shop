@@ -65,7 +65,8 @@ export default function Navbar() {
         <Link
           href={href}
           onClick={onNavigate}
-          className="whitespace-nowrap text-sm text-[#d26a58] hover:text-orange-900"
+          className="whitespace-nowrap text-sm text-[#d26a58]
+           hover:text-orange-900"
         >
           {title}
         </Link>
@@ -127,7 +128,8 @@ export default function Navbar() {
     <>
       {/* Delivery Banner */}
 
-      <div className="flex h-10 w-full items-center justify-center border-b border-[#FFDCDC] bg-rose-950 px-2 text-center font-mono text-xs sm:text-sm text-[#FFDCDC]">
+      <div className="flex h-10 w-full items-center justify-center border-b border-[#FFDCDC]
+       bg-rose-950 px-2 text-center font-mono text-xs sm:text-sm text-[#FFDCDC]">
         Free delivery with Mondial Relay on orders over €80.
       </div>
 
@@ -153,18 +155,20 @@ export default function Navbar() {
     {/* LOGO: CENTER on mobile */}
     <Link
       href="/about"
-      className="absolute left-1/2 flex -translate-x-1/2 items-center md:static md:translate-x-0"
+      className="absolute left-1/2 flex -translate-x-1/2 items-center
+       md:static md:translate-x-0"
     >
       <Image
         src="/LogoShop.png"
         alt="Shop Nor logo"
-        width={60}
-        height={60}
+        width={80}
+        height={80}
         priority
-        className="h-auto w-[60px] sm:w-[75px]"
+        className="h-auto w-[80px] sm:w-[75px] "
       />
 
-      <h1 className="-ml-4 whitespace-nowrap font-[Pacifico] text-xl text-[#d26a58]">
+      <h1 className="-ml-4 whitespace-nowrap font-[Pacifico] text-xl text-[#d26a58]
+       hover:text-orange-900">
         Nor Shop
       </h1>
     </Link>
@@ -185,7 +189,7 @@ export default function Navbar() {
         href="/spring/classic" categories={springCategories} />
 
       <SeasonMenu title="Clothes of Summer"
-        href="/summer" categories={summerCategories} />
+        href="/summer/classic" categories={summerCategories} />
     </nav>
 
     {/* RIGHT ICONS */}
@@ -267,7 +271,7 @@ export default function Navbar() {
         mobile onNavigate={closeMobile} />
 
       <SeasonMenu title="Clothes of Winter"
-        href="/winter"
+        href="/winter/classic"
         categories={winterCategories}
         mobile onNavigate={closeMobile} />
 
@@ -282,24 +286,32 @@ export default function Navbar() {
         mobile onNavigate={closeMobile} />
           <Link href="/contact"
         aria-label="Contact"
-        className=" flex flex-row gap-1 text-[#d26a58] hover:text-orange-900 md:hidden
+        className=" flex flex-row gap-2 text-[#d26a58] hover:text-orange-900 md:hidden
          ">
         <Mail size={20} /> <span>Contact us</span>
       </Link>
+<div className="flex flex-row items-center gap-2 md:hidden">
+  <Link
+    href="/user"
+    aria-label="Sign In"
+    className=" gap-2 flex items-center text-[#d26a58] hover:text-orange-900
+     hover:underline-offset-2"
+  >
+    <User size={20} />
+    <span>Sign In</span>
+  </Link>
 
- <Link href="/user"
-        aria-label="User"
-        className=" flex flex-row gap-1 text-[#d26a58] hover:text-orange-900 md:hidden
-         ">
-        <User size={20} /> <span>Sign In</span>
-      </Link>
-          
-          <Link href="/sign-up"
-        aria-label="Sign Up"
-        className=" flex flex-row gap-1 text-[#d26a58] hover:text-orange-900 md:hidden
-         ">
-        <User size={20} /> <span>Sign up</span>
-      </Link>
+  <span className="text-[#d26a58]">/</span>
+
+  <Link
+    href="/sign-up"
+    aria-label="Sign Up"
+    className="text-[#d26a58] hover:text-orange-900 hover:underline-offset-2"
+  >
+    Sign Up
+  </Link>
+</div>
+ 
     </nav>
   )}
   

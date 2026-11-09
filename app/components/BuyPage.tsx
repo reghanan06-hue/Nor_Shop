@@ -35,7 +35,7 @@ export default function BuyPage() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
-
+const [successMessage, setSuccessMessage] = useState("");
   const totalPrice = picture ? countQte * picture.price : 0;
 
   useEffect(() => {
@@ -90,42 +90,38 @@ export default function BuyPage() {
     };
   }, [id]);
 
+ 
   function handleSubmit() {
-    // event.preventDefault();
+  if (!picture) return;
 
-    if (!picture) return;
-
-    if (!selected || !selectedLength) {
-      alert("Please select a size and a length.");
-      return;
-    }
-
-    const order = {
-      productId: picture.id,
-      product: picture.title,
-      name,
-      phone,
-      city,
-      size: selected,
-      length: selectedLength,
-      quantity: countQte,
-      unitPrice: picture.price,
-      totalPrice,
-    };
-
-    console.log("Order details:", order);
-
-    alert(
-      `Thank you, ${name}!\n` +
-      `Product: ${picture.title}\n` +
-      `Quantity: ${countQte}\n` +
-      `Total price: ${totalPrice} MD`
-    );
-
-    setName("");
-    setPhone("");
-    setCity("");
+  if (!selected || !selectedLength) {
+    alert("Please select a size and a length.");
+    return;
   }
+
+  const order = {
+    productId: picture.id,
+    product: picture.title,
+    name,
+    phone,
+    city,
+    size: selected,
+    length: selectedLength,
+    quantity: countQte,
+    unitPrice: picture.price,
+    totalPrice,
+  };
+
+  console.log("Order details:", order);
+
+  setSuccessMessage(
+    `Thank you, ${name}! Your order has been placed successfully. Total: ${totalPrice} MD.`
+  );
+
+  setName("");
+  setPhone("");
+  setCity("");
+}
 
   if (loading) {
     return <p className="p-6 text-center">Loading product...</p>;
@@ -145,19 +141,9 @@ export default function BuyPage() {
         {picture.title}
       </h1>
 
-      {/* <div className="flex flex-col items-center justify-center 
-      gap-8 md:flex-row md:items-start"> */}
+     
         <div className="flex flex-col items-stretch justify-center gap-8 md:flex-row">
-        {/* clothes image */}
-        {/* <div className="w-full max-w-sm ">
-          <Image
-            src={picture.image}
-            alt={picture.title}
-            width={picture.width || 300}
-            height={picture.height || 300}
-            className="h-auto w-full rounded-xl object-cover"
-          />
-        </div> */}
+      
         {/* Clothes image */}
 <div className="w-full max-w-md h-130">
   <Image
@@ -247,14 +233,14 @@ export default function BuyPage() {
           </div>
 
           {/* Price */}
-          <div className="border-t border-amber-200 pt-8 mt-4
+          <div className="border-t border-amber-200 pt-2 mt-4 
           ">
             <p className="text-sm text-[#978c7b] ">
               Unit price: {picture.price} MD
             </p>
 
             <p className="mt-2 text-lg font-bold text-[#d26a58] 
-            flex flex-col items-center justify-center">
+            flex flex-col items-center justify-center mb-4">
               Total price: {totalPrice} MD
             </p>
           </div>
@@ -346,6 +332,14 @@ export default function BuyPage() {
         >
          <span className="text">Confirm order   {totalPrice} MD </span>
         </button>
+        {successMessage && (
+  <div className="mx-auto mt-3 w-fit max-w-full rounded-lg
+    bg-green-100 px-3 py-2 text-center
+    text-xs font-medium text-green-700
+    sm:w-full sm:px-4 sm:py-3 sm:text-sm md:text-base">
+    {successMessage}
+  </div>
+)}
       </form>
     </main>
   );
